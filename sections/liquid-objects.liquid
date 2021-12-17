@@ -1,0 +1,47 @@
+<h1>Cart Object</h1>
+
+<!-- <ul>
+    <li>cart.attributes</li>
+    <li>cart.cart_level_discount_applications</li>
+    <li>cart.currency</li>
+    <li>cart.discount_applications</li>
+    <li>cart.item_count</li>
+    <li>cart.items</li>
+    <li>cart.items_subtotal_price</li>
+    <li>cart.note</li>
+    <li>cart.original_total_price</li>
+    <li>cart.taxes_included</li>
+    <li>cart.total_discount</li>
+    <li>cart.total_price</li>
+    <li>cart.total_weight</li>
+</ul> -->
+
+<!-- If cart item_count < 5 then show how many more products needed to get discount -->
+
+{% if cart.item_count < 5 %}
+    {% assign needed_for_discount = 5 | minus: cart.item_count %}
+    <div class="alert page-width">
+        Add {{ needed_for_discount }} more products to get 20% off your order
+    </div>
+{% endif %}
+
+
+{% schema %}
+  {
+    "name": "Liquid Object",
+    "settings": [
+      {
+        "id": "liq-obj",
+        "type": "text",
+        "label": "Text box heading",
+        "default": "Title"
+      }
+    ],
+    "presets": [
+        {
+            "name": "Liquid Object",
+            "category": "Reference"
+        }
+    ]
+  }
+{% endschema %}
